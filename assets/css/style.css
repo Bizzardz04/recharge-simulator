@@ -1,0 +1,354 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+h1 { 
+  font-size: 24px; 
+  font-weight: 600; 
+}
+
+.search-container {
+  flex: 1;
+  max-width: 400px;
+  margin-left: 20px;
+  position: relative;
+  min-width: 250px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus { 
+  border-color: #fe2c55; 
+}
+
+.loader {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  transform: translateY(-50%);
+  display: none;
+}
+
+@keyframes spin { 
+  to { transform: translateY(-50%) rotate(360deg); } 
+}
+
+.user-found {
+  display: none;
+  font-size: 13px;
+  color: #333;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pop 0.3s ease forwards;
+}
+
+.check::after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: block;
+  animation: checkAnim 0.3s ease forwards;
+}
+
+@keyframes checkAnim {
+  from { opacity: 0; transform: scale(0) rotate(45deg); }
+  to { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.promo-text { 
+  color: #fe2c55; 
+  font-size: 14px; 
+  margin-bottom: 20px; 
+}
+
+.coins-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.coin-button, 
+.custom-input-container {
+  background: #f8f8f8;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 20px 15px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.coin-button { 
+  cursor: pointer; 
+}
+
+.coin-button:hover { 
+  background: #f0f0f0; 
+}
+
+.coin-button.selected, 
+.custom-input-container.selected, 
+.card-info.selected {
+  background: #ffe8ec;
+  border-color: #fe2c55;
+}
+
+.coin-icon { 
+  width: 24px; 
+  height: 24px; 
+  margin-bottom: 8px; 
+}
+
+.coin-amount {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.coin-price { 
+  font-size: 14px; 
+  color: #666; 
+}
+
+.custom-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  outline: none;
+}
+
+.special-offer {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.card-logo { 
+  width: 50px; 
+  height: 30px; 
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.recharge-button {
+  width: 100%;
+  padding: 15px;
+  background: #fe2c55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.recharge-button:hover { 
+  background: #e02849; 
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.active { 
+  display: flex; 
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-title { 
+  font-size: 20px; 
+  font-weight: 600; 
+  margin-bottom: 20px; 
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.card-number { 
+  font-size: 16px; 
+  letter-spacing: 2px; 
+}
+
+.visa-logo { 
+  width: 50px; 
+  height: 30px; 
+}
+
+.buy-button {
+  width: 100%;
+  padding: 15px;
+  background: #fe2c55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buy-button:hover { 
+  background: #e02849; 
+}
+
+.processing { 
+  font-size: 18px; 
+  color: #666; 
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.check-icon {
+  width: 60px;
+  height: 60px;
+  background: #4caf50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-mark {
+  width: 30px;
+  height: 30px;
+  border: 3px solid white;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  margin-top: -5px;
+}
+
+.success-text { 
+  font-size: 20px; 
+  font-weight: 600; 
+  color: #4caf50; 
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .container { padding: 20px; }
+  .coins-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  h1 { font-size: 20px; }
+  .recharge-button { font-size: 14px; padding: 12px; }
+  .special-offer { font-size: 13px; }
+  .coin-amount { font-size: 18px; }
+  .payment-method { justify-content: flex-start; }
+  .card-logo { width: 40px; height: 25px; }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Coins</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+
+</head>
+<body>
+  <img style="width: 150px;" src="assets/img/tikpng.png" alt="logo">
+  <div class="container">
+    <div class="header">
+      <h1>Get Coins</h1>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search user" id="searchInput" />
+        <div class="loader" id="loader"></div>
+        <div class="user-found" id="userFound"><div class="check"></div>User found</div>
+      </div>
+    </div>
+
+    <p class="promo-text">Recharge: Save 25% with a lower third-party service fee.</p>
+
+    <div class="coins-grid">
+      <button class="coin-button" data-coins="30" data-price="0.30">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">30</div>
+        <div class="coin-price">$0.30</div>
+      </button>
+      <button class="coin-button" data-coins="350" data-price="3.50">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">350</div>
+        <div class="coin-price">$3.50</div>
+      </button>
+      <button class="coin-button" data-coins="700" data-price="7.00">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">700</div>
+        <div class="coin-price">$7.00</div>
+      </button>
+      <button class="coin-button" data-coins="1400" data-price="14.00">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">1,400</div>
+        <div class="coin-price">$14.00</div>
+      </button>
+      <button class="coin-button" data-coins="3500" data-price="35.00">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">3,500</div>
+        <div class="coin-price">$35.00</div>
+      </button>
+      <button class="coin-button" data-coins="7000" data-price="70.00">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">7,000</div>
+        <div class="coin-price">$70.00</div>
+      </button>
+      <button class="coin-button" data-coins="17500" data-price="175.00">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin">17,500</div>
+        <div class="coin-price">$175.00</div>
+      </button>
+      <div class="custom-input-container" id="customContainer">
+        <div class="coin-amount"><img src="assets/img/cointik.webp" class="coin-icon" alt="coin"></div>
+        <input type="text" class="custom-input" id="customCoins" placeholder="Custom amount" />
+      </div>
+    </div>
+
+    <div class="special-offer"><strong>Special offer</strong> - 5% cashback on your next order</div>
+
+    <div class="payment-method">
+      <span>Payment method</span>
+      <svg class="card-logo" viewBox="0 0 48 32" fill="none">
+        <rect width="48" height="32" rx="4" fill="#1434CB"/>
+        <text x="8" y="22" fill="white" font-size="14" font-weight="bold">VISA</text>
+      </svg>
+      <svg class="card-logo" viewBox="0 0 48 32" fill="none">
+        <rect width="48" height="32" rx="4" fill="#fff" stroke="#e6e6e6"/>
+        <circle cx="18" cy="16" r="8" fill="#EB001B"/>
+        <circle cx="30" cy="16" r="8" fill="#F79E1B"/>
+      </svg>
+    </div>
+
+    <div class="total-section">
+  <span>Total:</span>
+  <span><span id="totalCoins">0</span> coins — <span id="totalPrice">$0.00</span></span>
+</div>
+
+
+    <button class="recharge-button" id="rechargeBtn">Recharge</button>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="paymentModal">
+    <div class="modal-content">
+      <h2 class="modal-title">Select card</h2>
+      <div class="card-info selected" data-card="visa">
+        <span class="card-number">**** **** **** 4030</span>
+        <svg class="visa-logo" viewBox="0 0 48 32" fill="none">
+          <rect width="48" height="32" rx="4" fill="#1434CB"/>
+          <text x="8" y="22" fill="white" font-size="14" font-weight="bold">VISA</text>
+        </svg>
+      </div>
+      <div class="card-info" data-card="mastercard">
+        <span class="card-number">**** **** **** 3456</span>
+        <svg class="visa-logo" viewBox="0 0 48 32" fill="none">
+          <rect width="48" height="32" rx="4" fill="#fff" stroke="#e6e6e6"/>
+          <circle cx="18" cy="16" r="8" fill="#EB001B"/>
+          <circle cx="30" cy="16" r="8" fill="#F79E1B"/>
+        </svg>
+      </div>
+      <button class="buy-button" id="buyBtn">Buy <span id="buyAmount">0</span> USD</button>
+    </div>
+  </div>
+
+  <div class="modal" id="processingModal">
+    <div class="modal-content"><p class="processing">Processing payment...</p></div>
+  </div>
+
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="success-message">
+        <div class="check-icon"><div class="check-mark"></div></div>
+        <p class="success-text">Successful recharge</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/tiktok.js"></script>
+</body>
+</html>
