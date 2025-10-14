@@ -15,6 +15,13 @@ const customInput = document.querySelector('.custom-input');
 let selectedCoins = 0;
 let selectedPrice = 0;
 
+// === ESTADO INICIAL ===
+window.addEventListener('DOMContentLoaded', () => {
+  loader.style.display = 'none';
+  userFound.style.display = 'none';
+  check.style.display = 'none';
+});
+
 // === BUSCADOR ===
 searchInput.addEventListener('input', () => {
   const value = searchInput.value.trim();
@@ -26,7 +33,7 @@ searchInput.addEventListener('input', () => {
       loader.style.display = 'none';
       userFound.style.display = 'flex';
       check.style.display = 'flex';
-    }, 2500);
+    }, 2200);
   } else {
     loader.style.display = 'none';
   }
@@ -76,7 +83,6 @@ rechargeBtn.addEventListener('click', () => {
   }
 });
 
-
 cardInfos.forEach(card => {
   card.addEventListener('click', () => {
     cardInfos.forEach(c => c.classList.remove('selected'));
@@ -94,4 +100,3 @@ buyBtn.addEventListener('click', () => {
     setTimeout(() => { successModal.classList.remove('active'); }, 3000);
   }, 2000);
 });
-
