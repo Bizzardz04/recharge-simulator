@@ -26,7 +26,7 @@ searchInput.addEventListener('input', () => {
       loader.style.display = 'none';
       userFound.style.display = 'flex';
       check.style.display = 'flex';
-    }, 1000);
+    }, 2500);
   } else {
     loader.style.display = 'none';
   }
@@ -94,3 +94,4 @@ buyBtn.addEventListener('click', () => {
     setTimeout(() => { successModal.classList.remove('active'); }, 3000);
   }, 2000);
 });
+
